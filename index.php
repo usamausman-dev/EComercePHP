@@ -3,37 +3,6 @@ include "header.php";
 $link=mysqli_connect("localhost","root","");
 mysqli_select_db($link,"maniexpress"); 
 
-// if (isset($_POST["submit1"])) 
-// {
-//     $d=0;
-//     if (isset($_COOKIE['item'])) 
-//     {
-//         # code...
-//         foreach($_COOKIE['item'] as $name => $value) 
-//         {
-//             # code...
-//             $d=$d+1;
-//         }
-//         $d=$d+1;
-//     }
-//     else
-//     {
-//         $d=$d+1;
-//     }
-
-//     $res3=mysqli_query($link,"select * from product where id=$id");
-//     while($row3=mysqli_fetch_array($res3)) {
-//         # code...
-//         $img1=$row3["product_image"];
-//         $nm=$row3["product_name"];
-//         $price=$row3["product_price"];
-//         $qty="1";
-//     }
-
-//     setcookie("item[$d]",$img1."__".$nm."__".$price."__".$qty,time()+1800);
-// }
-
-
 ?>
 <!-- slidder -->
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

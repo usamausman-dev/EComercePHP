@@ -1,5 +1,4 @@
 <?php
-include "header.php";
 $id=$_GET["id"];
 $link=mysqli_connect("localhost","root","");
 mysqli_select_db($link,"maniexpress"); 
@@ -7,7 +6,7 @@ mysqli_select_db($link,"maniexpress");
 if(isset($_POST["submit1"]))
 {
 	$d=0;
-	if(is_array($_COOKIE['item']))
+	if(isset($_COOKIE['item']))
 	{
 		foreach ($_COOKIE['item'] as $name => $value) {
 			# code...
@@ -25,15 +24,17 @@ if(isset($_POST["submit1"]))
 		$img1=$row3["product_image"];
 		$nm=$row3["product_name"];
 		$price=$row3["product_price"];
-		$size="1";
+		// $size="1";
 	}
-	setcookie("item[$d]",$img1."__".$nm."__".$price."__".$size,time()+1800);
+	setcookie("item[$d]",$img1."__".$nm."__".$price,time()+1800);
 	
 }
 ?>
 
 
-
+<?php
+include "header.php";
+?>
 
 
 <?php
@@ -62,10 +63,10 @@ while ($row=mysqli_fetch_array($res)) {
                     <h5>Price:</h5>
                     <p><?php echo $row["product_price"]; ?></p>
                 </div>
-                <div class="col-sm-12">
+                <!-- <div class="col-sm-12">
                     <h5>Shoe Size:</h5>
                     <input type="text" class="form-control" id="shoeSize" placeholder="Shoe Size">
-                </div>
+                </div> -->
                                                   
                 <div class="col-sm-12 mt-3">
                 	<h5 >Description:</h5>

@@ -21,7 +21,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
@@ -33,12 +33,15 @@
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-danger my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-danger my-2 my-sm-0 ml-1" data-toggle="modal" data-target="#cart">
+                <a href="cart.php" type="button" class="btn btn-danger my-2 my-sm-0 ml-1">
                     <i class="fa fa-shopping-cart"></i>
-                </button>
+                </a>
+                <!-- Button trigger modal -->
+                <!-- <button type="button" class="btn btn-danger my-2 my-sm-0 ml-1" data-toggle="modal" data-target="#cart">
+                    <i class="fa fa-shopping-cart"></i>
+                </button> -->
                 <!-- Modal -->
-                <div class="modal fade" id="cart" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<!--                 <div class="modal fade" id="cart" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog modal-xl">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -87,6 +90,7 @@
                             </div>
                         </div>
                     </div>
+                </div> -->
             </form>
         </div>
     </nav>
