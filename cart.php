@@ -13,7 +13,6 @@ include "header.php";
                                             if ($d==0) {
                                             	# code...
                                             	echo "<br>";
-
                                             	echo "<h4>No items in the Cart</h4>";
                                             	echo "<br>";
 
@@ -25,7 +24,8 @@ include "header.php";
 		                                                <th scope="col">#</th>
 		                                                <th scope="col">Product Name</th>
 		                                                <th scope="col">Price</th>
-		                                                <!-- <th scope="col">Quantity</th> -->
+		                                                <th scope="col">Quantity</th>
+		                                                <th scope="col">Total</th>
 		                                                <th scope="col">Remove</th>
 		                                            </tr>
 		                                        </thead>
@@ -37,17 +37,16 @@ include "header.php";
 			                                                $values11=explode("__", $value);
 
 			                                                ?>
-			                                                <tr>
+			                                    <tr>
                                                 <th scope="row "><img src="<?php echo $values11[0] ?>" height="50px" ></th>
                                                 <td><?php echo $values11[1] ?></td>
                                                 <td><?php echo $values11[2] ?></td>
-                                                <!-- <td>
-                                                    <button class="btn">
-                                                        <i class="fa fa-minus" aria-hidden="true"></i>
-                                                    </button> 4
-                                                    <button class="btn">
-                                                        <i class="fa fa-plus text-success" aria-hidden="true"></i></button>
-                                                </td> -->
+                                                <td>
+                                                   <?php echo $values11[3] ?>
+                                                </td>
+                                                <td>
+                                                   <?php echo $values11[4] ?>
+                                                </td>
                                                 <td>
                                                     <button class="btn">
                                                         <i class="fa fa-times text-danger" aria-hidden="true"></i>
@@ -60,27 +59,24 @@ include "header.php";
 			                                            foreach ($_COOKIE['item'] as $name => $value) 
 			                                            {
 			                                                $values11=explode("__", $value);
-			                                                $tot=$tot+$values11[2];
+			                                                $tot=$tot+$values11[4];
 			                                            }
-			                                            echo $tot;	
+			                			                                            
 		                                        	?>
                                             </tbody>
+                                            <tfoot class="bg-dark text-white">
+                                        		<tr>
+                                        			<td colspan="6"><h5>Total:<?php echo $tot ?></h5></td>
+                                        		</tr>
+                                        	</tfoot>
+                                    </table>
                                             	<?php
                                             }
-
-                                            		
+                                                                                        		
                                         	?> 
                                     </table>
                                 </div>
-                                <div class="bg-danger text-white text-center py-3">
-                                	<h3>Total : 
-                                	<?php
-                                        $Total=$tot;
-                                        echo $Total;
-
-                                     ?>
-                                     </h3>
-                                </div>
+                                	
 
 <?php
 include "footer.php";

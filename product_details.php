@@ -24,10 +24,34 @@ if(isset($_POST["submit1"]))
 		$img1=$row3["product_image"];
 		$nm=$row3["product_name"];
 		$price=$row3["product_price"];
+		$qty="1";
+		$total=$price*$qty;
 		// $size="1";
 	}
-	setcookie("item[$d]",$img1."__".$nm."__".$price,time()+1800);
-	
+
+	if(isset($_COOKIE['item']))
+	{
+		foreach ($_COOKIE['item'] as $name1 => $value) 
+		{
+			$values11=explode("__", $value);
+			$found=0;
+			if ($img1==$values11[0]) {
+				$found=$found+1;
+				$qty=$values11[3]+1;
+				$total=$values11[2]*$qty;
+				setcookie("item[$name1]",$img1."__".$nm."__".$price."__".$qty."__".$total,time()+1800);
+				# code...
+			}
+			
+		}
+		if ($found==0) {
+			setcookie("item[$d]",$img1."__".$nm."__".$price."__".$qty."__".$total,time()+1800);
+		}
+	}
+	else{
+		setcookie("item[$d]",$img1."__".$nm."__".$price."__".$qty."__".$total,time()+1800);
+	}
+	// setcookie("item[$d]",$img1."__".$nm."__".$price,time()+1800);
 }
 ?>
 
@@ -63,9 +87,9 @@ while ($row=mysqli_fetch_array($res)) {
                     <h5>Price:</h5>
                     <p><?php echo $row["product_price"]; ?></p>
                 </div>
-                <!-- <div class="col-sm-12">
-                    <h5>Shoe Size:</h5>
-                    <input type="text" class="form-control" id="shoeSize" placeholder="Shoe Size">
+               <!--  <div class="col-sm-12">
+                    <h5>Quantity</h5>
+                    <input type="text" class="form-control" id="qty" placeholder="Quantity">
                 </div> -->
                                                   
                 <div class="col-sm-12 mt-3">
