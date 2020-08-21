@@ -1,14 +1,13 @@
 <?php
 session_start();
 if ($_SESSION["admin"]=="") {
-?>
-<script type="text/javascript">
-    window.location="admin_login.php"
-</script>
-<?php 
+    ?>
+    <script type="text/javascript">
+        window.location="admin_login.php"
+    </script>
+    <?php 
     # code...
 }
-
 ?>
 
 <?php
@@ -28,22 +27,22 @@ mysqli_select_db($link,"maniexpress");
     <title>Admin Panel</title>
 </head>
 <style type="text/css">
-.nav-pills .nav-link.active,
-.nav-pills .show>.nav-link {
-    color: #fff;
-    background-color: #dc3545;
-}
+    .nav-pills .nav-link.active,
+    .nav-pills .show>.nav-link {
+        color: #fff;
+        background-color: #dc3545;
+    }
 
-a {
-    color: #dc3545;
-    text-decoration: none;
-    background-color: transparent;
-}
+    a {
+        color: #dc3545;
+        text-decoration: none;
+        background-color: transparent;
+    }
 
-a:hover {
-    color: #dc3545;
-    opacity: 0.8;
-}
+    a:hover {
+        color: #dc3545;
+        opacity: 0.8;
+    }
 </style>
 
 <body>
@@ -79,10 +78,10 @@ a:hover {
     </nav>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3 bg-dark" style="height: 100vh">
+            <div class="col-md-3 bg-dark" style="height: 90vh">
                 <div class="nav flex-column nav-pills pt-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Orders</a>
-                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Category</a>
+
                     <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Products</a>
                 </div>
             </div>
@@ -90,101 +89,49 @@ a:hover {
                 <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                         <h2 class="my-3">Users</h2>
-                        <div class="table-responsive">
-                            <table class="table table-hover">
+
+
+                        <!-- Users Order Data -->
+
+
+                        <div class="table-responsive" style="height:78vh">
+                            <table class="table table-hover overflow-auto">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">First Name</th>
-                                        <th scope="col">Last Name</th>
+                                        <th scope="col">Full Name</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Status</th>
+                                        <th scope="col">Contact</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">City</th>
+                                        <th scope="col">Zip</th>
+                                        <th scope="col">
+                                            Details
+                                        </th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="active">
-                                                <label class="form-check-label ml-1" for="inlineCheckbox1">Active</label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                        <td>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="active">
-                                                <label class="form-check-label ml-1" for="inlineCheckbox1">Active</label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry the Bird</td>
-                                        <td>@fat</td>
-                                        <td>@twitter</td>
-                                        <td>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="active">
-                                                <label class="form-check-label ml-1" for="inlineCheckbox1">Active</label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                        <h2 class="my-3">Category</h2>
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Category Name</th>
-                                        <th scope="col">Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>
-                                            <!-- Button trigger modal -->
-                                            <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
-                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                            </button>
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="deleteCategory" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="deleteCategory">Delete Category</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            Are you sure, you want to delete category?
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-danger">Delete</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                                <?php
+                                $res=mysqli_query($link,"select * from checkout_address order by id asc");
+                                while ($row=mysqli_fetch_array($res)) {
+                                # code...
+                                    echo "<tr>";
+                                    echo "<td>";    echo $row[0];  echo "</td>";
+                                    echo "<td>";    echo $row[1]; echo " "; echo$row[2]; echo "</td>";
+                                    // echo "<td>";    echo $row[2]; echo "</td>";
+                                    echo "<td>";    echo $row[3]; echo "</td>";
+                                    echo "<td>";    echo $row[4]; echo "</td>";
+                                    echo "<td>";    echo $row[5]; echo "</td>";
+                                    echo "<td>";    echo $row[6]; echo "</td>";
+                                    echo "<td>";    echo $row[7]; echo "</td>";
+                                    echo "<td>";
+                                    ?>
+                                    <a href="invoice.php?id=<?php echo $row["id"]?>" target="_blank" type="button" class="btn btn-danger">
+                                        View
+                                    </a>
+                                    <?php echo "</td>";
+                                    echo "<tr>";
+                                }
+                                ?>
                             </table>
                         </div>
                     </div>
@@ -208,16 +155,16 @@ a:hover {
                                         <form name="form1" action="" method="post" enctype="multipart/form-data">
                                             <div class="form-group">
                                                 <label for="exampleFormControlInput1">Product Name</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Product Name" name="pnm">
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Product Name" name="pnm" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleFormControlInput1">Price</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Product Price" name="pprice">
+                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Product Price" name="pprice" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleFormControlFile1">Product Image:</label>
                                                 <input type="file" class="form-control-file" id="exampleFormControlFile1" name="pimage">    
-                                              </div>
+                                            </div>
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Category</label>
                                                 <select class="form-control" id="exampleFormControlSelect1" name="pcategory">
@@ -229,38 +176,30 @@ a:hover {
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleFormControlTextarea1">Description</label>
-                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="pdesc"></textarea>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="pdesc" required></textarea>
                                             </div>
                                             <div class="modal-footer">  
-                                        <input type="submit" class="btn btn-danger" name="submit1" value="Add Product">
-                                    </div>
+                                                <input type="submit" class="btn btn-danger" name="submit1" value="Add Product">
+                                            </div>
                                         </form>
 
 
-<?php
-if (isset($_POST["submit1"])) {
-    # code...
-    $v1=rand(1111,9999);
-    $v2=rand(1111,9999);
-    $v3=$v1.$v2;
-    $v3=md5($v3);
-    $fnm=$_FILES["pimage"]["name"];
-    $dst="./product_image/".$v3.$fnm;
-    $dst1="product_image/".$v3.$fnm;
-    move_uploaded_file($_FILES["pimage"]["tmp_name"],$dst);
+                                        <?php
+                                        if (isset($_POST["submit1"])) {
+                                            $v1=rand(1111,9999);
+                                            $v2=rand(1111,9999);
+                                            $v3=$v1.$v2;
+                                            $v3=md5($v3);
+                                            $fnm=$_FILES["pimage"]["name"];
+                                            $dst="./product_image/".$v3.$fnm;
+                                            $dst1="product_image/".$v3.$fnm;
+                                            move_uploaded_file($_FILES["pimage"]["tmp_name"],$dst);
 
-    mysqli_query($link,"insert into product values('','$_POST[pnm]','$_POST[pprice]','$dst1','$_POST[pcategory]','$_POST[pdesc]')");
-}
-
-
-
-?>
-
-
-
-
+                                            mysqli_query($link,"insert into product values('','$_POST[pnm]','$_POST[pprice]','$dst1','$_POST[pcategory]','$_POST[pdesc]')");
+                                        }
+                                        ?>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -269,150 +208,78 @@ if (isset($_POST["submit1"])) {
 
 
 
-                        <div class="table-responsive">
-                            <table class="table table-hover">
+                        <div class="table-responsive" style="height:78vh">
+                            <table class="table table-hover overflow-auto">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Product Name</th>
-                                        <th scope="col">Product Category</th>
                                         <th scope="col">Price</th>
+                                        <th scope="col">Product Category</th>
                                         <th scope="col">Decription</th>
-                                        <th scope="col">Status</th>
                                         <th scope="col">Delete</th>
+                                        <th scope="col">Edit</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>Lorem Emsum Decription</td>
-                                        <td>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="active">
-                                                <label class="form-check-label ml-1" for="inlineCheckbox1">Featured</label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <!-- Button trigger modal -->
-                                            <button type="button" class="btn" data-toggle="modal" data-target="#deleteProduct1">
-                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                            </button>
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="deleteProduct1" tabindex="-1" role="dialog" aria-labelledby="deleteProduct1" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="deleteProduct1">Delete Product</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            Are you sure, you want to delete product?
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-danger">Delete</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                        <td>Lorem Emsum Decription</td>
-                                        <td>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="active">
-                                                <label class="form-check-label ml-1" for="inlineCheckbox1">Featured</label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <!-- Button trigger modal -->
-                                            <button type="button" class="btn" data-toggle="modal" data-target="#deleteProduct2">
-                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                            </button>
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="deleteProduct2" tabindex="-1" role="dialog" aria-labelledby="deleteProduct" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="deleteProduct">Delete Product</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            Are you sure, you want to delete product?
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-danger">Delete</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry the Bird</td>
-                                        <td>@fat</td>
-                                        <td>@twitter</td>
-                                        <td>Lorem Emsum Decription</td>
-                                        <td>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="active">
-                                                <label class="form-check-label ml-1" for="inlineCheckbox1">Featured</label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <!-- Button trigger modal -->
-                                            <button type="button" class="btn" data-toggle="modal" data-target="#deleteProduct3">
-                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                            </button>
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="deleteProduct3" tabindex="-1" role="dialog" aria-labelledby="deleteProduct" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="deleteProduct">Delete Product</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            Are you sure, you want to delete product?
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-danger">Delete</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                    <?php
+                                    $res1=mysqli_query($link,"select * from product");
+
+                                    while ($row=mysqli_fetch_array($res1)) {
+                            # code...
+                                        echo "<tr>";
+                                        echo "<td>";
+                                        ?><img width="100" height="100" src="<?php echo $row["product_image"];?>">
+                                        <?php
+                                        echo "</td>";
+                                        echo "<td>";
+                                        echo $row["product_name"];
+                                        echo "</td>";
+                                        echo "<td>";
+                                        echo $row["product_price"];
+                                        echo "</td>";
+                                        echo "<td>";
+                                        echo $row["product_category"];
+                                        echo "</td>";
+                                        echo "<td>";
+                                        echo $row["product_description"];
+                                        echo "</td>";
+
+                                        echo "<td>"; ?>
+
+                                        <a href="delete.php?id=<?php echo $row["id"] ?>" type="button" class="btn">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </a>
+                                        <?php         
+                                        echo "</td>";
+
+                                        echo "<td>"; ?>
+
+                                        <a href="editProduct.php?id=<?php echo $row["id"] ?>" type="button" class="btn">
+                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                        </a>
+                                        <?php         
+                                        echo "</td>";
+
+
+                        echo "</tr>";
+
+                    }
+
+                    ?>
+                </tbody>
+            </table>
         </div>
     </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</div>
+</div>
+</div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 
 </html>

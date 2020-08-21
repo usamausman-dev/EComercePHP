@@ -8,65 +8,84 @@ include "header.php"
             <img src="cart.jpg" class="img-fluid">
         </div>
         <div class="col-md-6 pt-4 mb-5">
-            <form>
+            <form name="form1" action="" method="post">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="firstName">First Name</label>
-                        <input type="text" class="form-control" id="firstName">
+                        <input type="text" class="form-control" name="firstName" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="lastName">Last Name</label>
-                        <input type="text" class="form-control" id="lastName">
+                        <input type="text" class="form-control" name="lastName" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="Email">Email</label>
-                        <input type="email" class="form-control" id="Email">
+                        <input type="email" class="form-control" name="email" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="contact">Contact</label>
-                        <input type="text" class="form-control" id="contact">
+                        <input type="text" class="form-control" name="contact" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputAddress">Address</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                </div>
-                <div class="form-group">
-                    <label for="inputAddress2">Address 2</label>
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                    <input type="text" class="form-control" name="address" required>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputCity">City</label>
-                        <input type="text" class="form-control" id="inputCity">
+                        <input type="text" class="form-control" name="city" required>
                     </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputState">State</label>
-                        <select id="inputState" class="form-control">
-                            <option selected>Choose...</option>
-                            <option>...</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-2">
+                    
+                    <div class="form-group col-md-6">
                         <label for="inputZip">Zip</label>
-                        <input type="text" class="form-control" id="inputZip">
+                        <input type="text" class="form-control" name="zip" required>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck">
-                        <label class="form-check-label" for="gridCheck">
-                            Check me out
-                        </label>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-danger">Check Out</button>
+                
+                <input type="submit" class="btn btn-danger" value="Check Out" name="submit1">
             </form>
         </div>
     </div>
 </div>
+
+<?php
+if (isset($_POST["submit1"])) 
+{
+    $link=mysqli_connect("localhost","root","");
+    mysqli_select_db($link,"maniexpress");
+    mysqli_query($link,"insert into checkout_address values('','$_POST[firstName]','$_POST[lastName]','$_POST[email]','$_POST[contact]','$_POST[address]','$_POST[city]','$_POST[zip]')");
+
+    ?>
+    <script type="text/javascript">
+        alert("Order Placed Successfully");
+    </script>
+    <?php
+}
+
+
+$res=mysqli_query($link,"select id from checkout_address order by id desc limit 1");
+while ($row=mysqli_fetch_array($res)) 
+{
+    # code...
+    $id=$row["id"];
+}   
+
+if (isset($_COOKIE['item'])) 
+{
+
+    foreach ($_COOKIE['item'] as $name1 => $value) 
+    {
+    # code...
+        $values11=explode("__", $value);
+        mysqli_query($link,"insert into confirm_order_product values('','$id','$values11[1]','$values11[2]','$values11[3]','$values11[0]','$values11[4]')");
+    }
+}
+?>
+
+
 <?php
 include "footer.php"
 ?>

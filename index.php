@@ -71,82 +71,74 @@ mysqli_select_db($link,"maniexpress");
                 <div class="container">
                     <div class="row pb-5">
 
-<?php
-$res=mysqli_query($link,"select * from product");
-while($row=mysqli_fetch_array($res)){
-?>
-            <div class="col-md-4 p-4 bg-light text-center">
-                <img src="<?php echo $row["product_image"]; ?>" class="img-fluid" style="height: 200px;width: auto;">
-                <h4 class="pt-3"><?php echo $row["product_name"]; ?></h4>
-                <p class="text-secondary"><?php echo $row["product_price"]; ?></p>
-                <a href="product_details.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger" type="button">
-                                View Details
-                </a>
-            </div>
-                        
-<?php
+                        <?php
+                        $res=mysqli_query($link,"select * from product where product_category='men'");
+                        while($row=mysqli_fetch_array($res)){
+                            ?>
+                            <div class="col-md-4 p-4 bg-light text-center">
+                                <img src="<?php echo $row["product_image"]; ?>" class="img-fluid" style="height: 200px;width: auto;">
+                                <h4 class="pt-3"><?php echo $row["product_name"]; ?></h4>
+                                <p class="text-secondary"><?php echo $row["product_price"]; ?></p>
+                                <a href="product_details.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger" type="button">
+                                    View Details
+                                </a>
+                            </div>
 
-}
-?>   
-                        
-</div>
+                            <?php
 
-                    <!-- PAGINATION -->
-<!-- 
-                    <nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item">
-      <a class="page-link text-danger" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
-    </li>
-    <li class="page-item"><a class="page-link text-danger" href="#">1</a></li>
-    <li class="page-item"><a class="page-link text-danger" href="#">2</a></li>
-    <li class="page-item"><a class="page-link text-danger" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link text-danger" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
-  </ul>
-</nav>
-         -->        </div>
+                        }
+                        ?>   
+                        
+                    </div>
+                </div>
             </div>
             <div class="tab-pane fade" id="women" role="tabpanel" aria-labelledby="women-tab">
                 <div class="container">
                     <div class="row pb-5">
-                        <div class="col-md-4 p-4 bg-light text-center"><img src="1.jpg" class="img-fluid">
-                            <h4 class="pt-3">Casual Shoes</h4>
-                            <p class="text-secondary">Rs .1999.00</p><button class="btn btn-danger" type="button">View Details</button>
-                        </div>
-                        <div class="col-md-4 p-4 bg-light text-center"><img src="1.jpg" class="img-fluid">
-                            <h4 class="pt-3">Casual Shoes</h4>
-                            <p class="text-secondary">Rs .1999.00</p><button class="btn btn-danger" type="button">View Details</button>
-                        </div>
-                        <div class="col-md-4 p-4 bg-light text-center"><img src="1.jpg" class="img-fluid">
-                            <h4 class="pt-3">Casual Shoes</h4>
-                            <p class="text-secondary">Rs .1999.00</p><button class="btn btn-danger" type="button">View Details</button>
-                        </div>
+
+                        <?php
+                        $res=mysqli_query($link,"select * from product where product_category='women'");
+                        while($row=mysqli_fetch_array($res)){
+                            ?>
+                            <div class="col-md-4 p-4 bg-light text-center">
+                                <img src="<?php echo $row["product_image"]; ?>" class="img-fluid" style="height: 200px;width: auto;">
+                                <h4 class="pt-3"><?php echo $row["product_name"]; ?></h4>
+                                <p class="text-secondary"><?php echo $row["product_price"]; ?></p>
+                                <a href="product_details.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger" type="button">
+                                    View Details
+                                </a>
+                            </div>
+
+                            <?php
+
+                        }
+                        ?>   
+                        
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="kid" role="tabpanel" aria-labelledby="kid-tab">
                 <div class="container">
                     <div class="row pb-5">
-                        <div class="col-md-4 p-4 bg-light text-center"><img src="1.jpg" class="img-fluid">
-                            <h4 class="pt-3">Casual Shoes</h4>
-                            <p class="text-secondary">Rs .1999.00</p><button class="btn btn-danger" type="button">View Details</button>
-                        </div>
-                        <div class="col-md-4 p-4 bg-light text-center"><img src="1.jpg" class="img-fluid">
-                            <h4 class="pt-3">Casual Shoes</h4>
-                            <p class="text-secondary">Rs .1999.00</p><button class="btn btn-danger" type="button">View Details</button>
-                        </div>
-                        <div class="col-md-4 p-4 bg-light text-center"><img src="1.jpg" class="img-fluid">
-                            <h4 class="pt-3">Casual Shoes</h4>
-                            <p class="text-secondary">Rs .1999.00</p><button class="btn btn-danger" type="button">View Details</button>
-                        </div>
+
+                        <?php
+                        $res=mysqli_query($link,"select * from product where product_category='kids'");
+                        while($row=mysqli_fetch_array($res)){
+                            ?>
+                            <div class="col-md-4 p-4 bg-light text-center">
+                                <img src="<?php echo $row["product_image"]; ?>" class="img-fluid" style="height: 200px;width: auto;">
+                                <h4 class="pt-3"><?php echo $row["product_name"]; ?></h4>
+                                <p class="text-secondary"><?php echo $row["product_price"]; ?></p>
+                                <a href="product_details.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger" type="button">
+                                    View Details
+                                </a>
+                            </div>
+
+                            <?php
+
+                        }
+                        ?>   
+                        
                     </div>
                 </div>
             </div>
