@@ -28,7 +28,7 @@ mysqli_select_db($link,"maniexpress");
     </a>
 </div>
 <!-- About -->
-<div class="container-fluid bg-lights">
+<div class="container-fluid bg-lights" id="about">
     <div class="container">
         <h2 class="text-center py-5 underline-small">About Us</h2>
         <div class="row">
@@ -49,7 +49,7 @@ mysqli_select_db($link,"maniexpress");
     </div>
 </div>
 <!-- Products -->
-<div>
+<div id="products">
     <div class="container pt-5">
         <h2 class="text-center py-5 underline-small">Products</h2>
 
@@ -169,7 +169,7 @@ mysqli_select_db($link,"maniexpress");
     </div>
 </div>
 <!-- Contact -->
-<div class="container">
+<div class="container" id="contact">
     <h2 class="text-center pt-4 underline-small">Contact</h2>
     <div class="row">
         <div class="col-md-6">

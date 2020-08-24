@@ -1,5 +1,8 @@
 <?php
-include "header.php"
+include "header.php";
+$link=mysqli_connect("localhost","root","");
+mysqli_select_db($link,"maniexpress");
+
 ?>
 <div class="container">
     <h2 class="text-center pt-4 underline-small">Checkout</h2>

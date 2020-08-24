@@ -7,17 +7,17 @@
                     <div class="col-sm-6 col-md-3 item">
                         <h6 style="font-weight: bold;">Collection</h6>
                         <ul class="p-0 mb-0">
-                            <li><a href="#" class="text-white">Men</a></li>
-                            <li><a href="#" class="text-white">Women</a></li>
-                            <li><a href="#" class="text-white">Kids</a></li>
+                            <li><a href="index.php#products" class="text-white">Men</a></li>
+                            <li><a href="index.php#products" class="text-white">Women</a></li>
+                            <li><a href="index.php#products" class="text-white">Kids</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-6 col-md-3 item">
                         <h6 style="font-weight: bold;">About</h6>
                         <ul class="p-0 mb-0">
-                            <li><a href="#" class="text-white">Company</a></li>
-                            <li><a href="#" class="text-white">Team</a></li>
-                            <li><a href="#" class="text-white">Careers</a></li>
+                            <li><a href="index.php#about" class="text-white">Company</a></li>
+                            <li><a href="index.php#about" class="text-white">Team</a></li>
+                            <li><a href="index.php#about" class="text-white">Careers</a></li>
                         </ul>
                     </div>
                     <div class="col-md-6 item text mb-5">
